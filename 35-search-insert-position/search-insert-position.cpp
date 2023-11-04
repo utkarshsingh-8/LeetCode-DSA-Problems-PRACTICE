@@ -2,26 +2,24 @@ class Solution {
 public:
     int searchInsert(vector<int>& arr, int target) {
         
-        int n = arr.size();
-        int start = 0, end = n-1;
+        int low = 0, high = arr.size()-1;
+        int ans=arr.size();
 
-        if(target > arr[end])
-            return n;
-    
-        while(start < end)
-        {
-            int mid = start + (end - start)/2;
+        while(low<=high) {
 
-            if(arr[mid] == target)
-                return mid;
+            int mid = (low+high)/2;
 
-            else if(arr[mid] < target)
-                start = mid + 1;
+            if(arr[mid] >= target)
+            {
+                ans = mid;
+                high = mid-1;
+            }
 
             else
-                end = mid;
+                low=mid+1;
+
         }
 
-        return end;
+        return ans;
     }
 };
