@@ -17,7 +17,7 @@ public:
             {
                 load += weights[i];
             }
-            
+
         }
 
         return days;
@@ -25,18 +25,8 @@ public:
 
     int shipWithinDays(vector<int>& weights, int days) {
 
-        int n  = weights.size();
-        int sum = 0;
-        int maxi = INT_MIN;
-
-        for(int i = 0; i < n; i++)
-        {
-            sum += weights[i];
-            maxi = max(maxi,weights[i]);
-        }
-
-        int start = maxi;
-        int end = sum;
+        int start = *max_element(weights.begin(),weights.end());
+        int end = accumulate(weights.begin(),weights.end(),0);
         
         while(start <= end)
         {
