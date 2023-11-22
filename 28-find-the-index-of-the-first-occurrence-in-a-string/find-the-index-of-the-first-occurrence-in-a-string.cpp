@@ -2,11 +2,22 @@ class Solution {
 public:
     int strStr(string haystack, string needle) {
 
-        int found = haystack.find(needle);
+        int x = haystack.size(), y = needle.size();
 
-        if(found != string:: npos)
+        if(y == 0) return -1;
+        if(x == 1 && y == 1) return 0;
+
+        for(int i = 0; i <= x-y; i++)
         {
-            return found;
+            for(int j = 0; j < y; j++)
+            {
+                if(haystack[i+j] != needle[j]) 
+                    break;
+
+                if( j == y-1)
+                    return i;
+                
+            }
         }
 
         return -1;
