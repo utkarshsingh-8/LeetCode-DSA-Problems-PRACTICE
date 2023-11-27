@@ -2,19 +2,20 @@ class Solution {
 public:
     int numJewelsInStones(string jewels, string stones) {
 
-        int countOfJewels = 0;
-        unordered_set<char> s1;
+        int count = 0, n1 =jewels.size(), n2= stones.size();
 
-        for(int j = 0; j < jewels.size(); j++)
-            s1.insert(jewels[j]);
-
-        for(int i =0; i < stones.size(); i++)
+        for(int i = 0; i < n1; i++)
         {
-            if(s1.find(stones[i]) != s1.end())
-                countOfJewels++;
+            for(int j = 0; j < n2; j++)
+            {
+                if(jewels[i] == stones[j])
+                {
+                    count++;
+                }
+            }
         }
 
-        return countOfJewels;
+        return count;
         
     }
 };
