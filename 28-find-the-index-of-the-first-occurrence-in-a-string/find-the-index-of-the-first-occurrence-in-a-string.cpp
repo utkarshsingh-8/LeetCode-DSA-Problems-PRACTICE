@@ -3,18 +3,27 @@ public:
     int strStr(string haystack, string needle) {
 
         int x = haystack.size(), y = needle.size();
-          
-        for(int i = 0; i <= x-y; i++)
+
+        if(y == 0) return -1;
+        if(x == 1 && y == 1) return 0;
+
+        int i = 0, j = 0;
+  
+        while( i < x )
         {
-            for(int j = 0; j < y; j++)
+            j = 0;
+            while(j < y)
             {
-                if(haystack[i+j] != needle[j]) 
+                if(haystack[i+j] != needle[j])
                     break;
 
-                if( j == y-1)
+                if(j == y - 1)
                     return i;
-                
+
+                j++;
             }
+
+            i++;
         }
 
         return -1;
