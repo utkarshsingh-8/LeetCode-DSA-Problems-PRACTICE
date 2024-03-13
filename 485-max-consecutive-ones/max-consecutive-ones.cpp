@@ -17,16 +17,14 @@ public:
             if(nums[i])
             {
                 maxCount++;
+                count = max(count,maxCount);
             }
             else 
             {
-                count = max(count,maxCount);
                 maxCount = 0;
             }
 
         }
-
-        count = max(count,maxCount);
 
         return count;
         
