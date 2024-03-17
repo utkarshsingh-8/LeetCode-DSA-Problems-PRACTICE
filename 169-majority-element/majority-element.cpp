@@ -10,11 +10,10 @@ public:
         {
             if(count == 0)
             {
-                count = 1;
                 element = nums[i];
             }
 
-            else if(nums[i] == element)
+            if(nums[i] == element)
             {
                 count++;
             }
@@ -24,19 +23,7 @@ public:
             }
         }
 
-        int count1 = 0;
-        for(int i = 0; i < n; i++)
-        {
-            if(element == nums[i])
-                count1++;
-        }
-
-        if(count1++ > n/2)
-        {
-            return element;
-        }
-
-        return -1;
+        return element;        
 
     }
 };
