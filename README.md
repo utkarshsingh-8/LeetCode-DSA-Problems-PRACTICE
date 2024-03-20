@@ -10,8 +10,7 @@ This repository contains solutions to various Data Structure and Algorithm (DSA)
 2. [Problem Categories](#problem-categories)
 3. [Directory Structure](#directory-structure)
 4. [Getting Started](#getting-started)
-5. [Contributing](#contributing)
-6. [License](#license)
+
 
 ## Introduction
 
