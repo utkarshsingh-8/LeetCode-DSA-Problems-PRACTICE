@@ -1,11 +1,20 @@
 class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
-        vector<int> res;
-        for(int i = 0; i < nums.size(); i ++){
-            nums[abs(nums[i])-1] = -nums[abs(nums[i])-1];
-            if(nums[abs(nums[i])-1] > 0) res.push_back(abs(nums [i]));
+        unordered_map<int, int> mp;
+
+        for (int num: nums) {
+            mp[num]++;
         }
-        return res;
+
+        nums.clear();
+
+        for(const auto& pair: mp) {
+            if(pair.second == 2 ) {
+                nums.push_back(pair.first);
+            }
+        }
+
+        return nums;
     }
 };
